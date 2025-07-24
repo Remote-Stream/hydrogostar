@@ -6,2583 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>هیدروگستر | گلخانه هیدروپونیک نوین روستایی</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <style>
-        :root {
-            --primary-color: #2ecc71;
-            --primary-dark: #27ae60;
-            --primary-light: #abebc6;
-            --secondary-color: #3498db;
-            --secondary-dark: #2980b9;
-            --accent-color: #f39c12;
-            --accent-dark: #e67e22;
-            --dark-color: #2c3e50;
-            --light-color: #f8f9fa;
-            --gray-color: #95a5a6;
-            --success-color: #2ecc71;
-            --warning-color: #f1c40f;
-            --danger-color: #e74c3c;
-            --text-color: #333;
-            --text-light: #7f8c8d;
-            --white: #ffffff;
-            --transition: all 0.3s ease;
-            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.07);
-            --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.1);
-            --radius-sm: 5px;
-            --radius-md: 10px;
-            --radius-lg: 20px;
-            --radius-xl: 30px;
-            --radius-round: 50%;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--white);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-        
-        ul {
-            list-style: none;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .section {
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-top: 52px;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--dark-color);
-            display: inline-block;
-            margin-top: 52px;
-            margin-bottom: 15px;
-            position: relative;
-        }
-        
-        .section-title h2::before {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 5px;
-            background: var(--primary-color);
-            bottom: -10px;
-            right: 50%;
-            transform: translateX(50%);
-            border-radius: 10px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 5px;
-            background: var(--accent-color);
-            bottom: -10px;
-            right: 50%;
-            transform: translateX(calc(100% + 5px));
-            border-radius: 10px;
-        }
-        
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 20px auto 0;
-        }
-        
-        .section-bg {
-            background-color: var(--light-color);
-        }
-        
-        /* Shapes & Decorations */
-        .shape-divider {
-            position: absolute;
-            width: 100%;
-            height: 150px;
-            z-index: 1;
-        }
-        
-        .shape-divider--top {
-            top: 0;
-            transform: rotate(180deg);
-        }
-        
-        .shape-divider--bottom {
-            bottom: 0;
-        }
-        
-        .shape-divider svg {
-            width: 100%;
-            height: 100%;
-            fill: var(--white);
-        }
-        
-        .shape-divider--green svg {
-            fill: var(--primary-light);
-        }
-        
-        .shape-divider--gray svg {
-            fill: var(--light-color);
-        }
-        
-        .bg-dots {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background-image: radial-gradient(var(--primary-light) 2px, transparent 2px);
-            background-size: 30px 30px;
-            opacity: 0.3;
-            z-index: -1;
-        }
-        
-        .bg-dots--right {
-            right: -150px;
-            top: 20%;
-        }
-        
-        .bg-dots--left {
-            left: -150px;
-            bottom: 20%;
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
-        }
-        
-        /* Header & Navigation */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-        
-        header.scrolled {
-            padding: 5px 0;
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 50px;
-            margin-left: 10px;
-            transition: var(--transition);
-        }
-        
-        header.scrolled .logo img {
-            height: 40px;
-        }
-        
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: var(--transition);
-        }
-        
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
-        
-        .nav-links li {
-            margin-right: 30px;
-            position: relative;
-        }
-        
-        .nav-links a {
-            color: var(--dark-color);
-            font-weight: 500;
-            font-size: 1rem;
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .nav-links .active a {
-            color: var(--primary-color);
-        }
-        
-        .nav-links .active a::after {
-            width: 100%;
-        }
-        
-        .nav-btn {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: var(--radius-md);
-            font-weight: 500;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
-        }
-        
-        .nav-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark-color);
-            z-index: 1002;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1585336261022-680e295ce3fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            margin-top: 0;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero h2 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            line-height: 1.2;
-        }
-        
-        .hero h2 span {
-            color: var(--primary-color);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .hero h2 span::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 10px;
-            background: var(--primary-color);
-            bottom: 5px;
-            left: 0;
-            z-index: -1;
-            opacity: 0.3;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            border-radius: var(--radius-md);
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: 2px solid var(--primary-color);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.2);
-            transition: var(--transition);
-            z-index: -1;
-        }
-        
-        .btn:hover::before {
-            width: 100%;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-            margin-right: 15px;
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--white);
-            color: var(--primary-color);
-        }
-        
-        .hero-buttons {
-            margin-top: 30px;
-        }
-        
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            color: var(--white);
-            font-size: 2rem;
-            z-index: 2;
-            cursor: pointer;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-20px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-10px) translateX(-50%);
-            }
-        }
-        
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .about-text h3::after {
-            content: '';
-            position: absolute;
-            width: 70%;
-            height: 3px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            bottom: 0;
-            right: 0;
-            border-radius: 10px;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            color: var(--text-color);
-        }
-        
-        .about-text ul {
-            margin: 20px 0;
-            padding-right: 20px;
-        }
-        
-        .about-text ul li {
-            position: relative;
-            padding-right: 25px;
-            margin-bottom: 10px;
-        }
-        
-        .about-text ul li::before {
-            content: "\f00c";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            right: 0;
-            top: 3px;
-            color: var(--primary-color);
-        }
-        
-        .about-text .stats {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 30px -10px 20px;
-        }
-        
-        .about-text .stat-item {
-            flex: 1;
-            min-width: 150px;
-            margin: 10px;
-            background-color: rgba(46, 204, 113, 0.1);
-            padding: 20px;
-            border-radius: var(--radius-md);
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .about-text .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .about-text .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-            display: block;
-        }
-        
-        .about-text .stat-text {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-        }
-        
-        .about-image-container {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .about-image-container::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 3px solid var(--primary-color);
-            top: 20px;
-            right: 20px;
-            border-radius: var(--radius-lg);
-            z-index: -1;
-            transition: var(--transition);
-        }
-        
-        .about-image-container:hover::before {
-            top: 10px;
-            right: 10px;
-        }
-        
-        .about-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .about-image-container:hover img {
-            transform: scale(1.05);
-        }
-        
-        .about-badge {
-            position: absolute;
-            bottom: -20px;
-            right: 20px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 15px 25px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            font-weight: 500;
-        }
-        
-        .about-badge span {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        /* Features */
-        .features {
-            background-color: var(--light-color);
-            position: relative;
-        }
-        
-        .features-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .feature-card {
-            background-color: var(--white);
-            padding: 40px 30px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            bottom: 0;
-            left: 0;
-            transition: var(--transition);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .feature-card:hover::before {
-            height: 10px;
-        }
-        
-        .feature-icon {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 25px;
-            background: linear-gradient(45deg, rgba(46, 204, 113, 0.1), rgba(52, 152, 219, 0.1));
-            border-radius: var(--radius-round);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-        
-        .feature-card:hover .feature-icon {
-            transform: rotateY(180deg);
-            color: var(--secondary-color);
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            color: var(--dark-color);
-            position: relative;
-            padding-bottom: 15px;
-            display: inline-block;
-        }
-        
-        .feature-card h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-        }
-        
-        .feature-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card .btn-link {
-            color: var(--primary-color);
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            margin-top: auto;
-            transition: var(--transition);
-        }
-        
-        .feature-card .btn-link i {
-            margin-right: 5px;
-            transition: var(--transition);
-        }
-        
-        .feature-card .btn-link:hover {
-            color: var(--secondary-color);
-        }
-        
-        .feature-card .btn-link:hover i {
-            transform: translateX(-5px);
-        }
-        
-        /* Process Section */
-        .process {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .process-container {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .process-steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .process-steps::before {
-            content: '';
-            position: absolute;
-            top: 50px;
-            right: 30px;
-            width: calc(100% - 60px);
-            height: 3px;
-            background: linear-gradient(to left, var(--primary-light), var(--secondary-color), var(--primary-light));
-            z-index: -1;
-        }
-        
-        .process-step {
-            flex: 1;
-            min-width: 200px;
-            max-width: 250px;
-            text-align: center;
-            padding: 0 15px;
-            position: relative;
-            margin-bottom: 40px;
-        }
-        
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            border-radius: var(--radius-round);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-            margin: 0 auto 20px;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
-            transition: var(--transition);
-        }
-        
-        .process-step:hover .step-number {
-            transform: scale(1.1);
-            box-shadow: 0 15px 25px rgba(46, 204, 113, 0.4);
-        }
-        
-        .process-step h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
-        
-        .process-step p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-        
-        /* Products Section */
-        .products {
-            background-color: var(--light-color);
-            position: relative;
-        }
-        
-        .product-categories {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            gap: 10px;
-        }
-        
-        .category-btn {
-            padding: 8px 20px;
-            background: var(--white);
-            border: none;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-light);
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .category-btn:hover, .category-btn.active {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
-        }
-        
-        .products-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .product-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            position: relative;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--primary-color);
-            color: var(--white);
-            font-size: 0.8rem;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: var(--radius-sm);
-            z-index: 2;
-        }
-        
-        .product-badge.new {
-            background: var(--secondary-color);
-        }
-        
-        .product-badge.sale {
-            background: var(--accent-color);
-        }
-        
-        .product-image {
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .product-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.2));
-            z-index: 1;
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .product-card:hover .product-image::after {
-            opacity: 1;
-        }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.1);
-        }
-        
-        .product-actions {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .product-action-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-round);
-            background-color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-size: 1rem;
-            box-shadow: var(--shadow-sm);
-            cursor: pointer;
-            transition: var(--transition);
-            transform: translateX(-60px);
-            opacity: 0;
-        }
-        
-        .product-card:hover .product-action-btn {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        
-        .product-card:hover .product-action-btn:nth-child(1) {
-            transition-delay: 0.1s;
-        }
-        
-        .product-card:hover .product-action-btn:nth-child(2) {
-            transition-delay: 0.2s;
-        }
-        
-        .product-card:hover .product-action-btn:nth-child(3) {
-            transition-delay: 0.3s;
-        }
-        
-        .product-action-btn:hover {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-        
-        .product-info {
-            padding: 25px;
-            position: relative;
-        }
-        
-        .product-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-            transition: var(--transition);
-        }
-        
-        .product-card:hover .product-info h3 {
-            color: var(--primary-color);
-        }
-        
-        .product-info p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-        
-        .product-price {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 1.3rem;
-            display: block;
-        }
-        
-        .product-price small {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-weight: 400;
-            text-decoration: line-through;
-            margin-right: 5px;
-        }
-        
-        .product-rating {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .product-rating i {
-            color: var(--accent-color);
-            font-size: 0.9rem;
-        }
-        
-        .product-rating span {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-        
-        .product-footer {
-            padding: 15px 25px;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .product-footer .btn-sm {
-            padding: 8px 15px;
-            font-size: 0.8rem;
-            border-radius: var(--radius-md);
-        }
-        
-        .product-availability {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        
-        .product-availability.in-stock {
-            color: var(--success-color);
-        }
-        
-        .product-availability.low-stock {
-            color: var(--warning-color);
-        }
-        
-        .product-availability.out-stock {
-            color: var(--danger-color);
-        }
-        
-        /* Village Market */
-        .village-market {
-            position: relative;
-        }
-        
-        .market-container {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .market-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .market-header p {
-            max-width: 800px;
-            margin: 0 auto 30px;
-            color: var(--text-light);
-        }
-        
-        .market-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .market-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            height: 100%;
-            position: relative;
-        }
-        
-        .market-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .market-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .market-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .market-card:hover .market-image img {
-            transform: scale(1.1);
-        }
-        
-        .market-content {
-            padding: 25px;
-        }
-        
-        .market-title {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .market-icon {
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
-            border-radius: var(--radius-round);
-            background: linear-gradient(45deg, rgba(46, 204, 113, 0.1), rgba(52, 152, 219, 0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 15px;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-        }
-        
-        .market-title h3 {
-            font-size: 1.3rem;
-            color: var(--dark-color);
-            transition: var(--transition);
-        }
-        
-        .market-card:hover .market-title h3 {
-            color: var(--primary-color);
-        }
-        
-        .market-content p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .market-details {
-            margin-top: 20px;
-        }
-        
-        .market-detail {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-        
-        .market-detail i {
-            color: var(--primary-color);
-            margin-left: 10px;
-            font-size: 0.9rem;
-        }
-        
-        .market-footer {
-            padding: 15px 25px;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .market-price {
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            background-color: var(--light-color);
-            position: relative;
-        }
-        
-        .testimonials-container {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .testimonials-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .testimonials-slider {
-            padding: 20px 10px 60px;
-        }
-        
-        .testimonial-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-        
-        .testimonial-card::before {
-            content: '\f10d';
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 3rem;
-            color: rgba(46, 204, 113, 0.1);
-            z-index: 0;
-        }
-        
-        .testimonial-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-text {
-            margin-bottom: 20px;
-            color: var(--text-color);
-            line-height: 1.7;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-image {
-            width: 60px;
-            height: 60px;
-            border-radius: var(--radius-round);
-            overflow: hidden;
-            margin-left: 15px;
-            border: 3px solid var(--primary-light);
-        }
-        
-        .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            font-size: 1.1rem;
-            color: var(--dark-color);
-            margin-bottom: 5px;
-        }
-        
-        .author-info p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        
-        .testimonial-rating {
-            margin-top: 10px;
-        }
-        
-        .testimonial-rating i {
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            margin-left: 2px;
-        }
-        
-        /* FAQ Section */
-        .faq {
-            position: relative;
-        }
-        
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .faq-item {
-            background-color: var(--white);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 15px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-        
-        .faq-item:hover {
-            box-shadow: var(--shadow-md);
-        }
-        
-        .faq-question {
-            padding: 20px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .faq-question h3 {
-            font-size: 1.1rem;
-            color: var(--dark-color);
-            transition: var(--transition);
-        }
-        
-        .faq-icon {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-        
-        .faq-answer {
-            padding: 0 25px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        
-        .faq-answer-content {
-            color: var(--text-light);
-            padding-bottom: 20px;
-            line-height: 1.7;
-        }
-        
-        .faq-item.active .faq-question {
-            background-color: rgba(46, 204, 113, 0.05);
-        }
-        
-        .faq-item.active .faq-question h3 {
-            color: var(--primary-color);
-        }
-        
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding-top: 10px;
-        }
-        
-        /* Visiting Section */
-        .visiting {
-            background-color: var(--light-color);
-            position: relative;
-        }
-        
-        .visiting-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .visiting-info {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .visiting-info h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .visiting-info h3::after {
-            content: '';
-            position: absolute;
-            width: 70%;
-            height: 3px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            bottom: 0;
-            right: 0;
-            border-radius: 10px;
-        }
-        
-        .visiting-info p {
-            color: var(--text-color);
-            margin-bottom: 30px;
-            line-height: 1.7;
-        }
-        
-        .schedule {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            box-shadow: var(--shadow-md);
-            margin-top: 30px;
-        }
-        
-        .schedule-title {
-            font-size: 1.3rem;
-            color: var(--dark-color);
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-        
-        .schedule-title::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
-            bottom: 0;
-            right: 0;
-            border-radius: 10px;
-        }
-        
-        .schedule-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px dashed #ddd;
-        }
-        
-        .schedule-item:last-child {
-            border-bottom: none;
-        }
-        
-        .day {
-            font-weight: 700;
-            color: var(--dark-color);
-            display: flex;
-            align-items: center;
-        }
-        
-        .day i {
-            color: var(--primary-color);
-            margin-left: 8px;
-        }
-        
-        .time {
-            color: var(--text-light);
-            background-color: rgba(46, 204, 113, 0.1);
-            padding: 5px 10px;
-            border-radius: var(--radius-sm);
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-        
-        .schedule-item:hover .time {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-        
-        .visiting-cta {
-            margin-top: 30px;
-        }
-        
-        .visiting-map {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-        }
-        
-        .map-container {
-            height: 450px;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-        }
-        
-        .map-container::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 3px solid var(--primary-color);
-            top: 20px;
-            right: 20px;
-            border-radius: var(--radius-lg);
-            z-index: -1;
-            transition: var(--transition);
-        }
-        
-        .map-container:hover::before {
-            top: 10px;
-            right: 10px;
-        }
-        
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .map-info {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: var(--white);
-            padding: 15px 20px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            max-width: 250px;
-        }
-        
-        .map-info h4 {
-            font-size: 1.1rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .map-info p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 10px;
-        }
-        
-        .map-info .btn-sm {
-            padding: 8px 15px;
-            font-size: 0.8rem;
-            border-radius: var(--radius-md);
-            display: inline-block;
-        }
-        
-        /* Gallery */
-        .gallery {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .gallery-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .gallery-filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-            gap: 10px;
-        }
-        
-        .gallery-filter {
-            padding: 8px 20px;
-            background: var(--white);
-            border: none;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-light);
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .gallery-filter:hover, .gallery-filter.active {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
-        }
-        
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            height: 300px;
-            transition: var(--transition);
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 20px;
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        
-        .gallery-overlay-content {
-            text-align: center;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover .gallery-overlay-content {
-            transform: translateY(0);
-        }
-        
-        .gallery-overlay-title {
-            color: var(--white);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        
-        .gallery-overlay-category {
-            color: var(--primary-light);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .gallery-view-btn {
-            width: 50px;
-            height: 50px;
-            background-color: var(--white);
-            border-radius: var(--radius-round);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-        }
-        
-        .gallery-view-btn:hover {
-            background-color: var(--primary-color);
-            color: var(--white);
-            transform: scale(1.1);
-        }
-        
-        /* Blog Section */
-        .blog {
-            background-color: var(--light-color);
-            position: relative;
-        }
-        
-        .blog-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .blog-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .blog-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            height: 100%;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .blog-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .blog-card:hover .blog-image img {
-            transform: scale(1.1);
-        }
-        
-        .blog-category {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 5px 10px;
-            border-radius: var(--radius-sm);
-            font-size: 0.8rem;
-            font-weight: 500;
-            z-index: 1;
-        }
-        
-        .blog-content {
-            padding: 25px;
-        }
-        
-        .blog-meta {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        
-        .blog-meta-item {
-            display: flex;
-            align-items: center;
-            margin-left: 15px;
-        }
-        
-        .blog-meta-item:last-child {
-            margin-left: 0;
-        }
-        
-        .blog-meta-item i {
-            margin-left: 5px;
-            color: var(--primary-color);
-        }
-        
-        .blog-title {
-            font-size: 1.3rem;
-            color: var(--dark-color);
-            margin-bottom: 15px;
-            line-height: 1.4;
-            transition: var(--transition);
-        }
-        
-        .blog-card:hover .blog-title {
-            color: var(--primary-color);
-        }
-        
-        .blog-excerpt {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-        
-        .blog-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .blog-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .blog-author-image {
-            width: 35px;
-            height: 35px;
-            border-radius: var(--radius-round);
-            overflow: hidden;
-            margin-left: 10px;
-        }
-        
-        .blog-author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .blog-author-name {
-            font-size: 0.9rem;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-        
-        .blog-link {
-            color: var(--primary-color);
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            transition: var(--transition);
-        }
-        
-        .blog-link i {
-            margin-right: 5px;
-            transition: var(--transition);
-        }
-        
-        .blog-link:hover {
-            color: var(--secondary-color);
-        }
-        
-        .blog-link:hover i {
-            transform: translateX(-5px);
-        }
-        
-        /* Newsletter */
-        .newsletter {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1562664377-709f2c337eb2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            padding: 80px 0;
-        }
-        
-        .newsletter-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .newsletter-title {
-            color: var(--white);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .newsletter-description {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            box-shadow: var(--shadow-md);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-        }
-        
-        .newsletter-input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 1rem;
-        }
-        
-        .newsletter-input:focus {
-            outline: none;
-        }
-        
-        .newsletter-btn {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            border: none;
-            padding: 0 30px;
-            font-family: 'Vazirmatn', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .newsletter-btn:hover {
-            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-        }
-        
-        /* Contact */
-        .contact {
-            position: relative;
-        }
-        
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .contact-info h3::after {
-            content: '';
-            position: absolute;
-            width: 70%;
-            height: 3px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            bottom: 0;
-            right: 0;
-            border-radius: 10px;
-        }
-        
-        .contact-info p {
-            color: var(--text-color);
-            margin-bottom: 30px;
-            line-height: 1.7;
-        }
-        
-        .contact-details {
-            margin-top: 30px;
-        }
-        
-        .contact-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            box-shadow: var(--shadow-md);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-            transition: var(--transition);
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .contact-card-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: var(--radius-round);
-            background: linear-gradient(45deg, rgba(46, 204, 113, 0.1), rgba(52, 152, 219, 0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 20px;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            transition: var(--transition);
-        }
-        
-        .contact-card:hover .contact-card-icon {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-        }
-        
-        .contact-card-content h4 {
-            font-size: 1.2rem;
-            color: var(--dark-color);
-            margin-bottom: 10px;
-        }
-        
-        .contact-card-content p, .contact-card-content a {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-        
-        .contact-card-content a:hover {
-            color: var(--primary-color);
-        }
-        
-        .social-links {
-            display: flex;
-            margin-top: 30px;
-            gap: 10px;
-        }
-        
-        .social-link {
-            width: 45px;
-            height: 45px;
-            border-radius: var(--radius-round);
-            background-color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-        
-        .social-link:hover {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .form-container {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-        }
-        
-        .form-container::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            top: 0;
-            left: 0;
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark-color);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: var(--radius-md);
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-            background-color: #f9f9f9;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
-            background-color: var(--white);
-        }
-        
-        textarea.form-control {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .form-col {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .form-footer {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 30px;
-        }
-        
-        .btn-lg {
-            padding: 15px 40px;
-            font-size: 1rem;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: var(--white);
-            padding: 70px 0 20px;
-            position: relative;
-        }
-        
-        .footer-top {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 70px;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: var(--primary-color);
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            bottom: 0;
-            right: 0;
-            border-radius: 10px;
-        }
-        
-        .footer-about p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-links a i {
-            margin-left: 10px;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary-color);
-            transform: translateX(-5px);
-        }
-        
-        .footer-links a:hover i {
-            transform: translateX(-5px);
-        }
-        
-        .footer-contact-item {
-            display: flex;
-            margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .footer-contact-icon {
-            color: var(--primary-color);
-            margin-left: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .footer-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-        
-        .footer-gallery-item {
-            height: 80px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-        }
-        
-        .footer-gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .footer-gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .footer-newsletter p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-        
-        .footer-form {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        
-        .footer-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: var(--radius-md) 0 0 var(--radius-md);
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.9rem;
-        }
-        
-        .footer-input:focus {
-            outline: none;
-        }
-        
-        .footer-btn {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            border: none;
-            padding: 0 20px;
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            font-family: 'Vazirmatn', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .footer-btn:hover {
-            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .copyright {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-        
-        .footer-bottom-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-bottom-link {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-        
-        .footer-bottom-link:hover {
-            color: var(--primary-color);
-        }
-        
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-round);
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .footer-social-link:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-5px);
-        }
-        
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            border-radius: var(--radius-round);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-md);
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
-        }
-        
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
-        }
-        
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .hero h2 {
-                font-size: 3rem;
-            }
-            
-            .process-steps::before {
-                top: 30px;
-                width: calc(100% - 100px);
-                right: 50px;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .section {
-                padding: 80px 0;
-            }
-            
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .about-text h3, .visiting-info h3, .contact-info h3 {
-                font-size: 1.8rem;
-            }
-            
-            .process-steps {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .process-steps::before {
-                width: 3px;
-                height: calc(100% - 100px);
-                top: 50px;
-                right: 50%;
-                transform: translateX(50%);
-            }
-            
-            .process-step {
-                max-width: 100%;
-                width: 100%;
-                display: flex;
-                align-items: flex-start;
-                text-align: right;
-                padding: 0 0 30px 0;
-            }
-            
-            .step-number {
-                margin: 0 0 0 20px;
-            }
-            
-            .process-step-content {
-                flex: 1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .section {
-                padding: 60px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: 0;
-                height: 100vh;
-                width: 280px;
-                background-color: var(--white);
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 80px 30px 30px;
-                z-index: 1001;
-                transform: translateX(100%);
-                transition: transform 0.4s ease;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                transform: translateX(0);
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-                width: 100%;
-            }
-            
-            .nav-links a {
-                display: block;
-                width: 100%;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 10px 25px;
-            }
-            
-            .about-text h3, .visiting-info h3, .contact-info h3 {
-                font-size: 1.5rem;
-            }
-            
-            .about-text .stat-number {
-                font-size: 2rem;
-            }
-            
-            .form-container {
-                padding: 30px 20px;
-            }
-            
-            .footer-section h3 {
-                font-size: 1.3rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 8px 20px;
-                font-size: 0.8rem;
-            }
-            
-            .btn-secondary {
-                margin-right: 10px;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .feature-card, .product-card, .market-card, .blog-card, .testimonial-card {
-                padding: 20px;
-            }
-            
-            .about-text .stats {
-                flex-direction: column;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
-            
-            .newsletter-input {
-                border-radius: var(--radius-md) var(--radius-md) 0 0;
-            }
-            
-            .newsletter-btn {
-                border-radius: 0 0 var(--radius-md) var(--radius-md);
-                padding: 12px;
-            }
-            
-            .gallery-container {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .footer-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <img src="image.jpg" alt="توضیح تصویر" width="800" height="600" loading="lazy">
+
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -2614,7 +42,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <div class="hero-content">
             <h2>گلخانه هیدروپونیک <span>هیدروگستر</span></h2>
             <p>تجربه طعم طبیعی و سالم با محصولات ارگانیک و تازه گلخانه هیدروپونیک ما در قلب طبیعت زیبای روستا</p>
             <div class="hero-buttons">
@@ -2631,12 +59,12 @@
     <section id="about" class="section">
         <div class="bg-dots bg-dots--right"></div>
         <div class="container">
-            <div class="section-title" data-aos="fade-up">
+            <div class="section-title" >
                 <h2>درباره هیدروگستر</h2>
                 <p>داستان ما از یک ایده نوآورانه برای احیای کشاورزی روستایی با تکنولوژی مدرن آغاز شد</p>
             </div>
             <div class="about-content">
-                <div class="about-text" data-aos="fade-left" data-aos-delay="100">
+                <div class="about-text" data-aos="fade-left" data-delay="100">
                     <h3>گلخانه هیدروپونیک پیشرفته</h3>
                     <p>گلخانه هیدروپونیک هیدروگستر، واقع در قلب روستای زیبای سبزآباد، یکی از پیشرفته‌ترین مجموعه‌های تولید محصولات کشاورزی به روش هیدروپونیک در منطقه است. این مجموعه در سال ۱۳۹۸ با هدف احیای کشاورزی پایدار و اشتغال‌زایی برای جوانان روستا تأسیس شد.</p>
                     <p>ما با استفاده از تکنولوژی‌های نوین و روش‌های علمی، محصولاتی با کیفیت عالی، سالم و عاری از هرگونه آفت‌کش و مواد شیمیایی مضر تولید می‌کنیم. سیستم هیدروپونیک ما با دقت بالا طراحی شده تا با کمترین مصرف آب، بیشترین بازدهی را داشته باشد.</p>
@@ -2664,9 +92,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-image" data-aos="fade-right" data-aos-delay="100">
+                <div class="about-image" data-aos="fade-right" data-delay="100">
                     <div class="about-image-container">
-                        <img src="https://images.unsplash.com/photo-1562664377-709f2c337eb2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="گلخانه هیدروپونیک">
+                        <img src="images/hydroponic-farming.jpg" alt="گلخانه هیدروپونیک">
                     </div>
                     <div class="about-badge floating">
                         تأسیس <span>۱۳۹۸</span>
@@ -2690,7 +118,7 @@
                 <p>چرا محصولات کشت شده به روش هیدروپونیک بهتر هستند؟</p>
             </div>
             <div class="features-container">
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card" data-aos="fade-up" data-delay="100">
                     <div class="feature-icon">
                         <i class="fas fa-seedling"></i>
                     </div>
@@ -2698,7 +126,7 @@
                     <p>تمامی محصولات ما بدون استفاده از آفت‌کش‌ها و مواد شیمیایی مضر تولید می‌شوند. این روش کشت امکان کنترل دقیق محیط رشد گیاه را فراهم می‌کند و نیازی به استفاده از سموم دفع آفات نیست.</p>
                     <a href="#" class="btn-link"><i class="fas fa-long-arrow-alt-left"></i> اطلاعات بیشتر</a>
                 </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card" data-aos="fade-up" data-delay="200">
                     <div class="feature-icon">
                         <i class="fas fa-tint"></i>
                     </div>
@@ -2706,7 +134,7 @@
                     <p>روش هیدروپونیک تا ۹۰٪ در مصرف آب نسبت به روش‌های سنتی صرفه‌جویی می‌کند. آب در یک سیستم بسته بازیافت می‌شود و تنها مقدار کمی آب که توسط گیاهان جذب می‌شود، نیاز به جایگزینی دارد.</p>
                     <a href="#" class="btn-link"><i class="fas fa-long-arrow-alt-left"></i> اطلاعات بیشتر</a>
                 </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card" data-aos="fade-up" data-delay="300">
                     <div class="feature-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
@@ -2714,7 +142,7 @@
                     <p>کنترل دقیق مواد مغذی منجر به تولید محصولاتی با طعم بهتر و ارزش غذایی بالاتر می‌شود. گیاهان در محیط کنترل شده و با دریافت تمام مواد مغذی مورد نیاز خود، به بهترین شکل رشد می‌کنند.</p>
                     <a href="#" class="btn-link"><i class="fas fa-long-arrow-alt-left"></i> اطلاعات بیشتر</a>
                 </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card" data-aos="fade-up" data-delay="400">
                     <div class="feature-icon">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
@@ -2722,7 +150,7 @@
                     <p>با کنترل دقیق شرایط محیطی مانند دما، رطوبت و نور، امکان کشت و برداشت محصولات در تمام طول سال فراهم می‌شود. این روش وابستگی به شرایط آب و هوایی را از بین می‌برد.</p>
                     <a href="#" class="btn-link"><i class="fas fa-long-arrow-alt-left"></i> اطلاعات بیشتر</a>
                 </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-card" data-aos="fade-up" data-delay="500">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -2730,7 +158,7 @@
                     <p>به دلیل عدم استفاده از خاک و کنترل دقیق محیط رشد، محصولات هیدروپونیک کمتر در معرض آلودگی‌ها و بیماری‌های ناشی از خاک قرار می‌گیرند و از سلامت و بهداشت بالاتری برخوردار هستند.</p>
                     <a href="#" class="btn-link"><i class="fas fa-long-arrow-alt-left"></i> اطلاعات بیشتر</a>
                 </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-card" data-aos="fade-up" data-delay="600">
                     <div class="feature-icon">
                         <i class="fas fa-recycle"></i>
                     </div>
@@ -2758,7 +186,7 @@
             </div>
             
             <div class="process-steps">
-                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-step" data-aos="fade-up" data-delay="100">
                     <div class="step-number">۱</div>
                     <div class="process-step-content">
                         <h3>آماده‌سازی بذر</h3>
@@ -2766,7 +194,7 @@
                     </div>
                 </div>
                 
-                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                <div class="process-step" data-aos="fade-up" data-delay="200">
                     <div class="step-number">۲</div>
                     <div class="process-step-content">
                         <h3>جوانه‌زنی</h3>
@@ -2774,7 +202,7 @@
                     </div>
                 </div>
                 
-                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                <div class="process-step" data-aos="fade-up" data-delay="300">
                     <div class="step-number">۳</div>
                     <div class="process-step-content">
                         <h3>انتقال به سیستم هیدروپونیک</h3>
@@ -2782,7 +210,7 @@
                     </div>
                 </div>
                 
-                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                <div class="process-step" data-aos="fade-up" data-delay="400">
                     <div class="step-number">۴</div>
                     <div class="process-step-content">
                         <h3>تغذیه و مراقبت</h3>
@@ -2790,7 +218,7 @@
                     </div>
                 </div>
                 
-                <div class="process-step" data-aos="fade-up" data-aos-delay="500">
+                <div class="process-step" data-aos="fade-up" data-delay="500">
                     <div class="step-number">۵</div>
                     <div class="process-step-content">
                         <h3>رشد و نمو</h3>
@@ -2798,7 +226,7 @@
                     </div>
                 </div>
                 
-                <div class="process-step" data-aos="fade-up" data-aos-delay="600">
+                <div class="process-step" data-aos="fade-up" data-delay="600">
                     <div class="step-number">۶</div>
                     <div class="process-step-content">
                         <h3>برداشت محصول</h3>
@@ -2834,10 +262,10 @@
             </div>
             
             <div class="products-container">
-                <div class="product-card" data-aos="fade-up" data-aos-delay="100" data-category="vegetable">
+                <div class="product-card" data-aos="fade-up" data-delay="100" data-category="vegetable">
                     <span class="product-badge">پرفروش</span>
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1566842600175-97dca3c5ad8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="گوجه فرنگی">
+                        <img src="images/rsz_verticalfarming.jpg" alt="گوجه فرنگی">
                         <div class="product-actions">
                             <a href="#" class="product-action-btn"><i class="far fa-heart"></i></a>
                             <a href="#" class="product-action-btn"><i class="fas fa-shopping-basket"></i></a>
@@ -2865,10 +293,10 @@
                     </div>
                 </div>
                 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="200" data-category="fruit">
+                <div class="product-card" data-aos="fade-up" data-delay="200" data-category="fruit">
                     <span class="product-badge new">جدید</span>
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1518006959876-88a455492fa8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="توت فرنگی">
+                        <img src="images/strawberries.jpg" alt="توت فرنگی">
                         <div class="product-actions">
                             <a href="#" class="product-action-btn"><i class="far fa-heart"></i></a>
                             <a href="#" class="product-action-btn"><i class="fas fa-shopping-basket"></i></a>
@@ -2896,9 +324,9 @@
                     </div>
                 </div>
                 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="300" data-category="vegetable">
+                <div class="product-card" data-aos="fade-up" data-delay="300" data-category="vegetable">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="کاهو">
+                        <img src="images/1.jpg" alt="کاهو">
                         <div class="product-actions">
                             <a href="#" class="product-action-btn"><i class="far fa-heart"></i></a>
                             <a href="#" class="product-action-btn"><i class="fas fa-shopping-basket"></i></a>
@@ -2926,10 +354,10 @@
                     </div>
                 </div>
                 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="400" data-category="vegetable">
+                <div class="product-card" data-aos="fade-up" data-delay="400" data-category="vegetable">
                     <span class="product-badge sale">تخفیف</span>
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="فلفل دلمه">
+                        <img src="images/7-scaled.jpeg" alt="فلفل دلمه">
                         <div class="product-actions">
                             <a href="#" class="product-action-btn"><i class="far fa-heart"></i></a>
                             <a href="#" class="product-action-btn"><i class="fas fa-shopping-basket"></i></a>
@@ -2957,9 +385,9 @@
                     </div>
                 </div>
                 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="500" data-category="herb">
+                <div class="product-card" data-aos="fade-up" data-delay="500" data-category="herb">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1594057687713-5fd14eed1a17?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="ریحان">
+                        <img src="images/-ریحان-در-گلخانه11.jpg" alt="ریحان">
                         <div class="product-actions">
                             <a href="#" class="product-action-btn"><i class="far fa-heart"></i></a>
                             <a href="#" class="product-action-btn"><i class="fas fa-shopping-basket"></i></a>
@@ -2987,9 +415,9 @@
                     </div>
                 </div>
                 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="600" data-category="greens">
+                <div class="product-card" data-aos="fade-up" data-delay="600" data-category="greens">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1582284540020-8acbe03f4924?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="سبزی خوردن">
+                        <img src="images/144728-5.jpg" alt="سبزی خوردن">
                         <div class="product-actions">
                             <a href="#" class="product-action-btn"><i class="far fa-heart"></i></a>
                             <a href="#" class="product-action-btn"><i class="fas fa-shopping-basket"></i></a>
@@ -3017,9 +445,9 @@
                     </div>
                 </div>
                 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="700" data-category="herb">
+                <div class="product-card" data-aos="fade-up" data-delay="700" data-category="herb">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1625059549113-bf46037b7aee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="نعناع">
+                        <img src="images/mojito-mint.jpg" alt="نعناع">
                         <div class="product-actions">
                             <a href="#" class="product-action-btn"><i class="far fa-heart"></i></a>
                             <a href="#" class="product-action-btn"><i class="fas fa-shopping-basket"></i></a>
@@ -3047,10 +475,10 @@
                     </div>
                 </div>
                 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="800" data-category="fruit">
+                <div class="product-card" data-aos="fade-up" data-delay="800" data-category="fruit">
                     <span class="product-badge">فصلی</span>
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="خیار">
+                        <img src="images/خیار.jpg" alt="خیار">
                         <div class="product-actions">
                             <a href="#" class="product-action-btn"><i class="far fa-heart"></i></a>
                             <a href="#" class="product-action-btn"><i class="fas fa-shopping-basket"></i></a>
@@ -3102,7 +530,7 @@
             </div>
             
             <div class="market-grid">
-                <div class="market-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="market-card" data-aos="fade-up" data-delay="100">
                     <div class="market-image">
                         <img src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="عسل طبیعی">
                     </div>
@@ -3131,7 +559,7 @@
                     </div>
                 </div>
                 
-                <div class="market-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="market-card" data-aos="fade-up" data-delay="200">
                     <div class="market-image">
                         <img src="https://images.unsplash.com/photo-1528750997573-59b89d56f615?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="لبنیات محلی">
                     </div>
@@ -3160,9 +588,9 @@
                     </div>
                 </div>
                 
-                <div class="market-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="market-card" data-aos="fade-up" data-delay="300">
                     <div class="market-image">
-                        <img src="https://images.unsplash.com/photo-1473973916745-60839f911ada?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="گیاهان دارویی">
+                        <img src="images/damnoosh.jpg" alt="گیاهان دارویی">
                     </div>
                     <div class="market-content">
                         <div class="market-title">
@@ -3189,9 +617,9 @@
                     </div>
                 </div>
                 
-                <div class="market-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="market-card" data-aos="fade-up" data-delay="400">
                     <div class="market-image">
-                        <img src="https://images.unsplash.com/photo-1560806175-c6419efc189d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="صنایع دستی">
+                        <img src="images/هنر-دستی-آذربایجان-شرقی.jpg" alt="صنایع دستی">
                     </div>
                     <div class="market-content">
                         <div class="market-title">
@@ -3218,7 +646,7 @@
                     </div>
                 </div>
                 
-                <div class="market-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="market-card" data-aos="fade-up" data-delay="500">
                     <div class="market-image">
                         <img src="https://images.unsplash.com/photo-1600626333540-9d8d65141b33?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="مربا و ترشیجات">
                     </div>
@@ -3247,7 +675,7 @@
                     </div>
                 </div>
                 
-                <div class="market-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="market-card" data-aos="fade-up" data-delay="600">
                     <div class="market-image">
                         <img src="https://images.unsplash.com/photo-1589737172794-6bc7e13a8541?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="آرد و نان محلی">
                     </div>
@@ -3448,7 +876,7 @@
             </div>
             
             <div class="faq-list">
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-item" data-aos="fade-up" data-delay="100">
                     <div class="faq-question">
                         <h3>هیدروپونیک چیست و چه تفاوتی با کشت سنتی دارد؟</h3>
                         <div class="faq-icon">
@@ -3462,7 +890,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                <div class="faq-item" data-aos="fade-up" data-delay="150">
                     <div class="faq-question">
                         <h3>آیا محصولات هیدروپونیک واقعاً ارگانیک هستند؟</h3>
                         <div class="faq-icon">
@@ -3476,7 +904,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-item" data-aos="fade-up" data-delay="200">
                     <div class="faq-question">
                         <h3>آیا طعم و ارزش غذایی محصولات هیدروپونیک با محصولات سنتی تفاوت دارد؟</h3>
                         <div class="faq-icon">
@@ -3490,7 +918,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                <div class="faq-item" data-aos="fade-up" data-delay="250">
                     <div class="faq-question">
                         <h3>چطور می‌توانم از گلخانه هیدروگستر بازدید کنم؟</h3>
                         <div class="faq-icon">
@@ -3504,7 +932,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="faq-item" data-aos="fade-up" data-delay="300">
                     <div class="faq-question">
                         <h3>آیا امکان خرید آنلاین محصولات وجود دارد؟</h3>
                         <div class="faq-icon">
@@ -3518,7 +946,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
+                <div class="faq-item" data-aos="fade-up" data-delay="350">
                     <div class="faq-question">
                         <h3>چگونه می‌توانم در بازار محلی هیدروگستر غرفه داشته باشم؟</h3>
                         <div class="faq-icon">
@@ -3532,7 +960,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="faq-item" data-aos="fade-up" data-delay="400">
                     <div class="faq-question">
                         <h3>آیا دوره‌های آموزشی کشت هیدروپونیک برگزار می‌کنید؟</h3>
                         <div class="faq-icon">
@@ -3546,7 +974,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="450">
+                <div class="faq-item" data-aos="fade-up" data-delay="450">
                     <div class="faq-question">
                         <h3>محصولات هیدروپونیک چقدر ماندگاری دارند؟</h3>
                         <div class="faq-icon">
@@ -3577,7 +1005,7 @@
                 <p>با ما همراه شوید و از نزدیک با فرآیند تولید محصولات هیدروپونیک آشنا شوید</p>
             </div>
             
-            <div class="visiting-info" data-aos="fade-left" data-aos-delay="100">
+            <div class="visiting-info" data-aos="fade-left" data-delay="100">
                 <h3>تجربه‌ای آموزشی و جذاب</h3>
                 <p>گلخانه هیدروپونیک هیدروگستر در روزهای مشخصی از هفته، درهای خود را به روی بازدیدکنندگان می‌گشاید تا علاقه‌مندان بتوانند از نزدیک با فناوری کشت بدون خاک و مزایای آن آشنا شوند. در این بازدیدها، راهنمایان متخصص ما شما را با مراحل مختلف تولید محصولات هیدروپونیک آشنا می‌کنند و به سؤالات شما پاسخ می‌دهند.</p>
                 <p>این بازدیدها برای تمامی گروه‌های سنی مناسب است و به ویژه برای دانش‌آموزان، دانشجویان و علاقه‌مندان به کشاورزی مدرن بسیار آموزنده خواهد بود. در پایان بازدید، می‌توانید از محصولات تازه گلخانه خریداری کنید و از بازار محلی ما نیز دیدن فرمایید.</p>
@@ -3608,7 +1036,7 @@
                 </div>
             </div>
             
-            <div class="visiting-map" data-aos="fade-right" data-aos-delay="100">
+            <div class="visiting-map" data-aos="fade-right" data-delay="100">
                 <div class="map-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.9761948077404!2d51.38999411525821!3d35.699864780190305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQxJzU5LjUiTiA1McKwMjMnMjQuMCJF!5e0!3m2!1sen!2s!4v1627309912347!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
                     
@@ -3650,20 +1078,20 @@
             </div>
             
             <div class="gallery-container">
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-category="greenhouse">
-                    <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="نمای داخلی گلخانه">
+                <div class="gallery-item" data-aos="fade-up" data-delay="100" data-category="greenhouse">
+                    <img src="images/unnamed.jpg" alt="نمای داخلی گلخانه">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
                             <h4 class="gallery-overlay-title">نمای داخلی گلخانه</h4>
                             <p class="gallery-overlay-category">گلخانه</p>
-                            <a href="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="gallery-view-btn lightbox-trigger">
+                            <a href="images/unnamed.jpg" class="gallery-view-btn lightbox-trigger">
                                 <i class="fas fa-search-plus"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="150" data-category="products">
+                <div class="gallery-item" data-aos="fade-up" data-delay="150" data-category="products">
                     <img src="https://images.unsplash.com/photo-1566842600175-97dca3c5ad8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="گوجه فرنگی هیدروپونیک">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
@@ -3676,7 +1104,7 @@
                     </div>
                 </div>
                 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" data-category="greenhouse">
+                <div class="gallery-item" data-aos="fade-up" data-delay="200" data-category="greenhouse">
                     <img src="https://images.unsplash.com/photo-1582095128060-e9ca8130cc6b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="سیستم هیدروپونیک">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
@@ -3689,7 +1117,7 @@
                     </div>
                 </div>
                 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="250" data-category="education">
+                <div class="gallery-item" data-aos="fade-up" data-delay="250" data-category="education">
                     <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="کارگاه آموزشی">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
@@ -3702,7 +1130,7 @@
                     </div>
                 </div>
                 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300" data-category="market">
+                <div class="gallery-item" data-aos="fade-up" data-delay="300" data-category="market">
                     <img src="https://images.unsplash.com/photo-1550857552-db547d469f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="بازار محلی">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
@@ -3715,7 +1143,7 @@
                     </div>
                 </div>
                 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="350" data-category="products">
+                <div class="gallery-item" data-aos="fade-up" data-delay="350" data-category="products">
                     <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="سبزیجات تازه">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
@@ -3728,7 +1156,7 @@
                     </div>
                 </div>
                 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400" data-category="education">
+                <div class="gallery-item" data-aos="fade-up" data-delay="400" data-category="education">
                     <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="بازدید دانش آموزان">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
@@ -3741,7 +1169,7 @@
                     </div>
                 </div>
                 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="450" data-category="greenhouse">
+                <div class="gallery-item" data-aos="fade-up" data-delay="450" data-category="greenhouse">
                     <img src="https://images.unsplash.com/photo-1596279072687-42d20dee0f85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="نشاء گیاهان">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
@@ -3754,7 +1182,7 @@
                     </div>
                 </div>
                 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="500" data-category="market">
+                <div class="gallery-item" data-aos="fade-up" data-delay="500" data-category="market">
                     <img src="https://images.unsplash.com/photo-1557844352-761f2548b18b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="محصولات محلی">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
@@ -3791,7 +1219,7 @@
             </div>
             
             <div class="blog-container">
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="blog-card" data-aos="fade-up" data-delay="100">
                     <div class="blog-image">
                         <img src="https://images.unsplash.com/photo-1562664377-709f2c337eb2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="مزایای هیدروپونیک">
                         <span class="blog-category">آموزشی</span>
@@ -3824,7 +1252,7 @@
                     </div>
                 </div>
                 
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="blog-card" data-aos="fade-up" data-delay="200">
                     <div class="blog-image">
                         <img src="https://images.unsplash.com/photo-1567451712484-e1ac352374b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="کارگاه آموزشی">
                         <span class="blog-category">رویدادها</span>
@@ -3857,7 +1285,7 @@
                     </div>
                 </div>
                 
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="blog-card" data-aos="fade-up" data-delay="300">
                     <div class="blog-image">
                         <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="کاهو هیدروپونیک">
                         <span class="blog-category">تغذیه</span>
@@ -3909,8 +1337,8 @@
     <section class="section newsletter">
         <div class="container newsletter-container">
             <h2 class="newsletter-title" data-aos="fade-up">عضویت در خبرنامه</h2>
-            <p class="newsletter-description" data-aos="fade-up" data-aos-delay="100">برای اطلاع از آخرین محصولات، تخفیف‌ها، رویدادها و مقالات آموزشی، در خبرنامه هیدروگستر عضو شوید</p>
-            <form class="newsletter-form" data-aos="fade-up" data-aos-delay="200">
+            <p class="newsletter-description" data-aos="fade-up" data-delay="100">برای اطلاع از آخرین محصولات، تخفیف‌ها، رویدادها و مقالات آموزشی، در خبرنامه هیدروگستر عضو شوید</p>
+            <form class="newsletter-form" data-aos="fade-up" data-delay="200">
                 <input type="email" class="newsletter-input" placeholder="آدرس ایمیل خود را وارد کنید..." required>
                 <button type="submit" class="newsletter-btn">عضویت</button>
             </form>
@@ -3926,12 +1354,12 @@
                 <p>ما آماده پاسخگویی به سؤالات شما هستیم</p>
             </div>
             
-            <div class="contact-info" data-aos="fade-left" data-aos-delay="100">
+            <div class="contact-info" data-aos="fade-left" data-delay="100">
                 <h3>اطلاعات تماس</h3>
                 <p>برای سفارش محصولات، هماهنگی بازدید، رزرو غرفه در بازار محلی، شرکت در دوره‌های آموزشی یا کسب اطلاعات بیشتر، با ما در ارتباط باشید:</p>
                 
                 <div class="contact-details">
-                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-card" data-aos="fade-up" data-delay="100">
                         <div class="contact-card-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
@@ -3941,7 +1369,7 @@
                         </div>
                     </div>
                     
-                    <div class="contact-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="contact-card" data-aos="fade-up" data-delay="150">
                         <div class="contact-card-icon">
                             <i class="fas fa-phone-alt"></i>
                         </div>
@@ -3952,7 +1380,7 @@
                         </div>
                     </div>
                     
-                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-card" data-aos="fade-up" data-delay="200">
                         <div class="contact-card-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
@@ -3963,7 +1391,7 @@
                         </div>
                     </div>
                     
-                    <div class="contact-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="contact-card" data-aos="fade-up" data-delay="250">
                         <div class="contact-card-icon">
                             <i class="fas fa-clock"></i>
                         </div>
@@ -3975,7 +1403,7 @@
                     </div>
                 </div>
                 
-                <div class="social-links" data-aos="fade-up" data-aos-delay="300">
+                <div class="social-links" data-aos="fade-up" data-delay="300">
                     <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
@@ -3984,7 +1412,7 @@
                 </div>
             </div>
             
-            <div class="contact-form" data-aos="fade-right" data-aos-delay="100">
+            <div class="contact-form" data-aos="fade-right" data-delay="100">
                 <div class="form-container">
                     <form>
                         <div class="form-row">
@@ -4086,10 +1514,10 @@
                         <h3>گالری تصاویر</h3>
                         <div class="footer-gallery">
                             <div class="footer-gallery-item">
-                                <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="گلخانه">
+                                <img src="images/Aeroponics.webp" alt="گلخانه">
                             </div>
                             <div class="footer-gallery-item">
-                                <img src="https://images.unsplash.com/photo-1566842600175-97dca3c5ad8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="گوجه فرنگی">
+                                <img src="images/are-hydroponic-farms-profitable.webp" alt="گوجه فرنگی">
                             </div>
                             <div class="footer-gallery-item">
                                 <img src="https://images.unsplash.com/photo-1582095128060-e9ca8130cc6b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="سیستم هیدروپونیک">
@@ -4162,302 +1590,7 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
-        });
-        
-        $(document).ready(function() {
-            // Mobile Menu Toggle
-            $('.mobile-menu-btn').on('click', function() {
-                $(this).find('i').toggleClass('fa-bars fa-times');
-                $('.nav-links').toggleClass('active');
-                $('body').toggleClass('menu-open');
-            });
-            
-            // Close menu when clicking on a nav link
-            $('.nav-links a').on('click', function() {
-                $('.nav-links').removeClass('active');
-                $('.mobile-menu-btn').find('i').removeClass('fa-times').addClass('fa-bars');
-                $('body').removeClass('menu-open');
-            });
-            
-            // Navbar Scroll Effect
-            $(window).on('scroll', function() {
-                if($(window).scrollTop() > 50) {
-                    $('header').addClass('scrolled');
-                } else {
-                    $('header').removeClass('scrolled');
-                }
-                
-                // Back to top button
-                if($(window).scrollTop() > 300) {
-                    $('#backToTop').addClass('show');
-                } else {
-                    $('#backToTop').removeClass('show');
-                }
-                
-                // Active menu item based on scroll position
-                var scrollPosition = $(document).scrollTop();
-                
-                // Check each section and update active class in menu
-                $('section').each(function() {
-                    var currentSection = $(this);
-                    var sectionTop = currentSection.offset().top - 100;
-                    var sectionId = currentSection.attr('id');
-                    
-                    if(scrollPosition >= sectionTop) {
-                        $('.nav-links li').removeClass('active');
-                        $('.nav-links li a[href="#'+ sectionId +'"]').parent().addClass('active');
-                    }
-                });
-            });
-            
-            // Smooth Scrolling
-            $('a[href^="#"]').on('click', function(e) {
-                e.preventDefault();
-                var target = $(this.hash);
-                if(target.length) {
-                    $('html, body').animate({
-                        scrollTop: target.offset().top - 80
-                    }, 800);
-                }
-            });
-            
-            // Counter Animation
-            function startCounter() {
-                $('.stat-number').each(function() {
-                    var $this = $(this);
-                    var countTo = $this.attr('data-count');
-                    
-                    $({ countNum: 0 }).animate({
-                        countNum: countTo
-                    }, {
-                        duration: 2000,
-                        easing: 'linear',
-                        step: function() {
-                            $this.text(Math.floor(this.countNum));
-                        },
-                        complete: function() {
-                            $this.text(this.countNum);
-                        }
-                    });
-                });
-            }
-            
-            // Start counter when about section is in viewport
-            var aboutSection = $('#about');
-            $(window).on('scroll', function() {
-                if($(window).scrollTop() + $(window).height() > aboutSection.offset().top + 200) {
-                    startCounter();
-                    // Unbind the event to prevent multiple triggers
-                    $(window).off('scroll');
-                }
-            });
-            
-            // Product Filter
-            $('.category-btn').on('click', function() {
-                var filterValue = $(this).attr('data-filter');
-                
-                $('.category-btn').removeClass('active');
-                $(this).addClass('active');
-                
-                if(filterValue == 'all') {
-                    $('.product-card').show();
-                } else {
-                    $('.product-card').hide();
-                    $('.product-card[data-category="' + filterValue + '"]').show();
-                }
-            });
-            
-            // Gallery Filter
-            $('.gallery-filter').on('click', function() {
-                var filterValue = $(this).attr('data-filter');
-                
-                $('.gallery-filter').removeClass('active');
-                $(this).addClass('active');
-                
-                if(filterValue == 'all') {
-                    $('.gallery-item').show();
-                } else {
-                    $('.gallery-item').hide();
-                    $('.gallery-item[data-category="' + filterValue + '"]').show();
-                }
-            });
-            
-            // FAQ Accordion
-            $('.faq-question').on('click', function() {
-                var faqItem = $(this).parent();
-                
-                if(faqItem.hasClass('active')) {
-                    faqItem.removeClass('active');
-                } else {
-                    $('.faq-item').removeClass('active');
-                    faqItem.addClass('active');
-                }
-            });
-            
-            // Initialize Testimonials Slider
-            var swiper = new Swiper('.testimonials-slider', {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                loop: true,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    }
-                }
-            });
-            
-            // Image Lightbox
-            $('.lightbox-trigger').on('click', function(e) {
-                e.preventDefault();
-                var imageUrl = $(this).attr('href');
-                
-                var lightboxHtml = '<div class="lightbox-overlay">' +
-                                   '<div class="lightbox-container">' +
-                                   '<img src="' + imageUrl + '" alt="Lightbox Image">' +
-                                   '<span class="lightbox-close">&times;</span>' +
-                                   '</div>' +
-                                   '</div>';
-                
-                $('body').append(lightboxHtml);
-                $('body').addClass('lightbox-open');
-                
-                // Close lightbox on click
-                $('.lightbox-overlay, .lightbox-close').on('click', function() {
-                    $('.lightbox-overlay').remove();
-                    $('body').removeClass('lightbox-open');
-                });
-                
-                // Prevent closing when clicking on image
-                $('.lightbox-container img').on('click', function(e) {
-                    e.stopPropagation();
-                });
-            });
-            
-            // Form Validation
-            $('form').on('submit', function(e) {
-                e.preventDefault();
-                
-                var form = $(this);
-                var isValid = true;
-                
-                form.find('input, textarea, select').each(function() {
-                    if($(this).prop('required') && !$(this).val()) {
-                        isValid = false;
-                        $(this).addClass('error');
-                    } else {
-                        $(this).removeClass('error');
-                    }
-                });
-                
-                if(isValid) {
-                    // Show success message
-                    var successHtml = '<div class="form-success">' +
-                                     '<div class="form-success-icon"><i class="fas fa-check-circle"></i></div>' +
-                                     '<h3>پیام شما با موفقیت ارسال شد</h3>' +
-                                     '<p>کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.</p>' +
-                                     '<button class="btn form-success-close">بستن</button>' +
-                                     '</div>';
-                    
-                    form.html(successHtml);
-                    
-                    // Close success message
-                    $('.form-success-close').on('click', function() {
-                        form[0].reset();
-                        form.find('.form-success').remove();
-                    });
-                }
-            });
-            
-            // Add CSS for form validation and success message
-            $('<style>')
-                .prop('type', 'text/css')
-                .html(`
-                    .error {
-                        border-color: #e74c3c !important;
-                        box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2) !important;
-                    }
-                    .form-success {
-                        text-align: center;
-                        padding: 30px;
-                    }
-                    .form-success-icon {
-                        font-size: 3rem;
-                        color: #2ecc71;
-                        margin-bottom: 20px;
-                    }
-                    .form-success h3 {
-                        margin-bottom: 10px;
-                        color: #2c3e50;
-                    }
-                    .form-success p {
-                        margin-bottom: 20px;
-                        color: #7f8c8d;
-                    }
-                    .lightbox-overlay {
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background-color: rgba(0, 0, 0, 0.9);
-                        z-index: 9999;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                    .lightbox-container {
-                        position: relative;
-                        max-width: 90%;
-                        max-height: 90%;
-                    }
-                    .lightbox-container img {
-                        max-width: 100%;
-                        max-height: 90vh;
-                        border: 5px solid white;
-                        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-                    }
-                    .lightbox-close {
-                        position: absolute;
-                        top: -40px;
-                        right: 0;
-                        color: white;
-                        font-size: 30px;
-                        cursor: pointer;
-                    }
-                    body.lightbox-open, body.menu-open {
-                        overflow: hidden;
-                    }
-                    .mt-30 {
-                        margin-top: 30px;
-                    }
-                    .mt-50 {
-                        margin-top: 50px;
-                    }
-                    .text-center {
-                        text-align: center;
-                    }
-                `)
-                .appendTo('head');
-        });
-    </script>
+    <script src="assets/js/main.js" defer></script>
+
 </body>
 </html>
